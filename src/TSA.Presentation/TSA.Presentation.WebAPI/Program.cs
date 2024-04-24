@@ -10,6 +10,7 @@ builder.Services.AddPersistenceServices(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAnyOrigin",
@@ -30,8 +31,6 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 
 app.UseRouting();
-
-app.ConfigureCustomExceptionMiddleware();
 
 app.UseCors("AllowAnyOrigin");
 
