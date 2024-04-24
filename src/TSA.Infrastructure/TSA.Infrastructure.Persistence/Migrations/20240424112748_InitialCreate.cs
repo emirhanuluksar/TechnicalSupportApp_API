@@ -37,9 +37,9 @@ namespace TSA.Infrastructure.Persistence.Migrations
                 columns: new[] { "CompanyId", "CreatedAt", "DeletedAt", "CompanyDescription", "CompanyEmail", "CompanyName", "CompanyPhoneNumber", "UpdatedAt", "CompanyWebsite" },
                 values: new object[,]
                 {
-                    { new Guid("57f47fdc-5f39-495f-8ca5-e59451b235d7"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Uluksar is a company that provides software solutions.", "test@test.com", "Uluksar", "+1234567890", null, "www.uluksar.com" },
-                    { new Guid("5e8a27c1-aa20-42b9-85c7-33bd50812581"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "ULUARS HOLDING is a company that provides software solutions.", "uluars@uluars.com", "ULUARS HOLDING", "+1234567890", null, "www.uluars.com" },
-                    { new Guid("6dc31048-5380-4f4e-8329-166a7fa18a60"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Digitalhat is a company that provides software solutions.", "dgtalhat@dgtalhat.com", "Digitalhat", "+1234567890", null, "www.digitalhat.com" }
+                    { new Guid("5ade0738-cf4c-4913-9b92-6107bc4401be"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Digitalhat is a company that provides software solutions.", "dgtalhat@dgtalhat.com", "Digitalhat", "+1234567890", null, "www.digitalhat.com" },
+                    { new Guid("842d41ec-b8f3-4b1f-8fe9-c90a59165746"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Uluksar is a company that provides software solutions.", "test@test.com", "Uluksar", "+1234567890", null, "www.uluksar.com" },
+                    { new Guid("e2d92c2d-2de6-4e8f-a0a8-e2330f1503c5"), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "ULUARS HOLDING is a company that provides software solutions.", "uluars@uluars.com", "ULUARS HOLDING", "+1234567890", null, "www.uluars.com" }
                 });
         }
 

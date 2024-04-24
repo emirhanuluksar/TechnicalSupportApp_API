@@ -12,7 +12,7 @@ using TSA.Infrastructure.Persistence.Contexts;
 namespace TSA.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(TSADbContext))]
-    [Migration("20240423182541_InitialCreate")]
+    [Migration("20240424112748_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -73,7 +73,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("57f47fdc-5f39-495f-8ca5-e59451b235d7"),
+                            Id = new Guid("842d41ec-b8f3-4b1f-8fe9-c90a59165746"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Uluksar is a company that provides software solutions.",
                             Email = "test@test.com",
@@ -83,7 +83,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("6dc31048-5380-4f4e-8329-166a7fa18a60"),
+                            Id = new Guid("5ade0738-cf4c-4913-9b92-6107bc4401be"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Digitalhat is a company that provides software solutions.",
                             Email = "dgtalhat@dgtalhat.com",
@@ -93,7 +93,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("5e8a27c1-aa20-42b9-85c7-33bd50812581"),
+                            Id = new Guid("e2d92c2d-2de6-4e8f-a0a8-e2330f1503c5"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ULUARS HOLDING is a company that provides software solutions.",
                             Email = "uluars@uluars.com",
