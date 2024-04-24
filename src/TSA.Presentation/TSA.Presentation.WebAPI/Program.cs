@@ -1,5 +1,6 @@
 using TSA.Core.Application;
 using TSA.Infrastructure.Persistence;
+using TSA.Infrastructure.Infrastructure.CrossCuttingConcerns.Exception.WebAPI.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -21,15 +22,16 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
 
 app.UseRouting();
+
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseCors("AllowAnyOrigin");
 
