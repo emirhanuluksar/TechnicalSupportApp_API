@@ -14,7 +14,8 @@ public static class PersistenceServiceRegistrations
         services.AddDbContext<TSADbContext>(options =>
         {
             var connectionString = Environment.GetEnvironmentVariable("ConnectionString");
-            options.UseSqlServer(connectionString ?? configuration.GetConnectionString("DefaultConnection"));
+
+            options.UseSqlServer(connectionString);
         });
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();

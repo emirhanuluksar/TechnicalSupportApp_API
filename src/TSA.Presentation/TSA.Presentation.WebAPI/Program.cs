@@ -1,6 +1,5 @@
 using TSA.Core.Application;
 using TSA.Infrastructure.Persistence;
-using TSA.Infrastructure.Infrastructure.CrossCuttingConcerns.Exception.WebAPI.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 
