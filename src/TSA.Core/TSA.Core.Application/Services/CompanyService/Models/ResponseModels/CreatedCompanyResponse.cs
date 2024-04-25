@@ -1,8 +1,8 @@
 namespace TSA.Core.Application.Services.CompanyService.Models.ResponseModels;
 
-public record CreatedCompanyResponse(Guid Id, string Name, string Email, string Description, string PhoneNumber, string WebSite)
+public record CreatedCompanyResponse(Guid Id, string Name, string Email, string LogoUrl, string CoverImageUrl, string Description, string PhoneNumber, string WebSite)
 {
-    public CreatedCompanyResponse() : this(Guid.Empty, "", "", "", "", "")
+    public CreatedCompanyResponse() : this(Guid.Empty, "", "", "", "", "", "", "")
     {
     }
 }

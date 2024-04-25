@@ -12,7 +12,7 @@ using TSA.Infrastructure.Persistence.Contexts;
 namespace TSA.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(TSADbContext))]
-    [Migration("20240424112748_InitialCreate")]
+    [Migration("20240425115959_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -32,6 +32,11 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("CompanyId");
 
+                    b.Property<string>("CoverImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CompanyCoverImageUrl");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -47,6 +52,11 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("CompanyEmail");
+
+                    b.Property<string>("LogoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("CompanyLogoUrl");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -73,30 +83,36 @@ namespace TSA.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("842d41ec-b8f3-4b1f-8fe9-c90a59165746"),
+                            Id = new Guid("d7bc7caf-2c92-4ed8-a31e-d1b5f478c701"),
+                            CoverImageUrl = "",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Uluksar is a company that provides software solutions.",
                             Email = "test@test.com",
+                            LogoUrl = "",
                             Name = "Uluksar",
                             PhoneNumber = "+1234567890",
                             Website = "www.uluksar.com"
                         },
                         new
                         {
-                            Id = new Guid("5ade0738-cf4c-4913-9b92-6107bc4401be"),
+                            Id = new Guid("dd0136f3-8eb2-471d-90be-a1be18cfc849"),
+                            CoverImageUrl = "",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Digitalhat is a company that provides software solutions.",
                             Email = "dgtalhat@dgtalhat.com",
+                            LogoUrl = "",
                             Name = "Digitalhat",
                             PhoneNumber = "+1234567890",
                             Website = "www.digitalhat.com"
                         },
                         new
                         {
-                            Id = new Guid("e2d92c2d-2de6-4e8f-a0a8-e2330f1503c5"),
+                            Id = new Guid("ce041a71-f3ee-4204-90a6-9dcca8f643e2"),
+                            CoverImageUrl = "",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "ULUARS HOLDING is a company that provides software solutions.",
                             Email = "uluars@uluars.com",
+                            LogoUrl = "",
                             Name = "ULUARS HOLDING",
                             PhoneNumber = "+1234567890",
                             Website = "www.uluars.com"
