@@ -1,11 +1,13 @@
 using TSA.Core.Application;
 using TSA.Infrastructure.Persistence;
+using TSA.Infrastructure.Security;
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices(builder.Configuration);
+builder.Services.AddSecurityServices();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

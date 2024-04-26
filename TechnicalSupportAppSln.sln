@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSA.Presentation.WebAPI", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSA.Infrastructure.Infrastructure", "src\TSA.Infrastructure\TSA.Infrastructure.Infrastructure\TSA.Infrastructure.Infrastructure.csproj", "{60E1D471-A194-416A-8D7C-BF770DA77FDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TSA.Infrastructure.Security", "src\TSA.Infrastructure\TSA.Infrastructure.Security\TSA.Infrastructure.Security.csproj", "{27FB576D-AFF1-4591-97E0-0AFD3B9EA1F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{60E1D471-A194-416A-8D7C-BF770DA77FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60E1D471-A194-416A-8D7C-BF770DA77FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60E1D471-A194-416A-8D7C-BF770DA77FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27FB576D-AFF1-4591-97E0-0AFD3B9EA1F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27FB576D-AFF1-4591-97E0-0AFD3B9EA1F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27FB576D-AFF1-4591-97E0-0AFD3B9EA1F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27FB576D-AFF1-4591-97E0-0AFD3B9EA1F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{820C4B60-C172-4E56-A191-4CD79FF1C35B} = {7FC732AB-88C9-48CA-B92E-5E038AB3B780}
@@ -60,5 +66,6 @@ Global
 		{311E5F32-7906-4AFC-B2BD-8A70444750DF} = {7FC732AB-88C9-48CA-B92E-5E038AB3B780}
 		{71DB2704-AFD0-49B4-A11D-EE6468C7F5A0} = {311E5F32-7906-4AFC-B2BD-8A70444750DF}
 		{60E1D471-A194-416A-8D7C-BF770DA77FDB} = {588497EA-6C83-43E5-A2DF-BFDDC710601D}
+		{27FB576D-AFF1-4591-97E0-0AFD3B9EA1F4} = {588497EA-6C83-43E5-A2DF-BFDDC710601D}
 	EndGlobalSection
 EndGlobal

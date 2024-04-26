@@ -12,6 +12,14 @@ public class UnitOfWork : IUnitOfWork
     {
         _context = context;
         CompanyRepository = new CompanyRepository(_context);
+        OperationClaimRepository = new OperationClaimRepository(_context);
+        UserOperationClaimRepository = new UserOperationClaimRepository(_context);
+        UserRepository = new UserRepository(_context);
+        RefreshTokenRepository = new RefreshTokenRepository(_context);
     }
     public ICompanyRepository CompanyRepository { get; private set; }
+    public IOperationClaimRepository OperationClaimRepository { get; private set; }
+    public IUserOperationClaimRepository UserOperationClaimRepository { get; private set; }
+    public IUserRepository UserRepository { get; private set; }
+    public IRefreshTokenRepository RefreshTokenRepository { get; private set; }
 }

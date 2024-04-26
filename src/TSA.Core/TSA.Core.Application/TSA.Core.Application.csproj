@@ -17,8 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TSA.Core.Domain\TSA.Core.Domain.csproj" />
-    <ProjectReference Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Infrastructure\TSA.Infrastructure.Infrastructure.csproj" />
+    <ProjectReference
+      Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Infrastructure\TSA.Infrastructure.Infrastructure.csproj" />
+    <ProjectReference
+      Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Security\TSA.Infrastructure.Security.csproj" />
   </ItemGroup>
 
 </Project>

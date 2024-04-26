@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using TSA.Core.Domain.Entities;
 using TSA.Core.Domain.Entities.Common;
+using TSA.Infrastructure.Security.Entities;
 
 namespace TSA.Infrastructure.Persistence.Contexts;
 
@@ -13,6 +14,11 @@ public class TSADbContext : DbContext
     }
 
     public DbSet<Company> Companies { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<OperationClaim> OperationClaims { get; set; }
+    public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
     {
         IEnumerable<EntityEntry<Entity<Guid>>> entries = ChangeTracker

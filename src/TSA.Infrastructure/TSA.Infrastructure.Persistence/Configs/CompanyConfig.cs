@@ -19,6 +19,10 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
         builder.Property(c => c.PhoneNumber).HasColumnName("CompanyPhoneNumber").IsRequired();
         builder.Property(c => c.Website).HasColumnName("CompanyWebsite").IsRequired();
 
+        builder.Property(c => c.CreatedAt).HasColumnName("CreatedAt").IsRequired();
+        builder.Property(c => c.UpdatedAt).HasColumnName("UpdatedAt");
+        builder.Property(c => c.DeletedAt).HasColumnName("DeletedAt");
+
         builder.HasQueryFilter(c => !c.DeletedAt.HasValue);
 
         builder.HasData
@@ -28,6 +32,8 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
                 Id = Guid.NewGuid(),
                 Name = "Uluksar",
                 Email = "test@test.com",
+                LogoUrl = "/images/companyLogos/Dgtl.png",
+                CoverImageUrl = "/images/companyCoverImages/company1.jpg",
                 Description = "Uluksar is a company that provides software solutions.",
                 PhoneNumber = "+1234567890",
                 Website = "www.uluksar.com",
@@ -37,6 +43,8 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
                 Id = Guid.NewGuid(),
                 Name = "Digitalhat",
                 Email = "dgtalhat@dgtalhat.com",
+                LogoUrl = "/images/companyLogos/Dgtl.png",
+                CoverImageUrl = "/images/companyCoverImages/company2.jpeg",
                 Description = "Digitalhat is a company that provides software solutions.",
                 PhoneNumber = "+1234567890",
                 Website = "www.digitalhat.com",
@@ -46,6 +54,8 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
                 Id = Guid.NewGuid(),
                 Name = "ULUARS HOLDING",
                 Email = "uluars@uluars.com",
+                LogoUrl = "/images/companyLogos/Dgtl.png",
+                CoverImageUrl = "/images/companyCoverImages/company3.jpg",
                 Description = "ULUARS HOLDING is a company that provides software solutions.",
                 PhoneNumber = "+1234567890",
                 Website = "www.uluars.com",

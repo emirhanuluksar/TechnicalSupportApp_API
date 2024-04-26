@@ -20,4 +20,5 @@
     <ProjectReference Include="..\..\TSA.Core\TSA.Core.Application\TSA.Core.Application.csproj" />
   </ItemGroup>
 
+
 </Project>

@@ -13,7 +13,6 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper) : ICompanySe
 {
     public async Task<CreatedCompanyResponse> CreateCompany(CreateCompanyRequest request)
     {
-        // Add business logic here
         var (logoUrl, coverImageUrl) = await PrepareCompanyImagesAsync(request.Logo, request.CoverImage);
         var company = mapper.Map<Company>(request);
         company.CoverImageUrl = coverImageUrl;
@@ -46,11 +45,6 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper) : ICompanySe
         }
 
         return (logoUrl, coverImageUrl);
-    }
-
-    private bool IsDevelopmentEnvironment()
-    {
-        return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
     }
 
     private async Task<string> CreateCompanyLogo(IFormFile logo)
