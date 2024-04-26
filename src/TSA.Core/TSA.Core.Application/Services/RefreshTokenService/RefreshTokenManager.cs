@@ -40,7 +40,7 @@ public class RefreshTokenManager(IUnitOfWork unitOfWork, ITokenHelper tokenHelpe
 
     public async Task<RefreshedTokensResponse> RefreshToken(RefreshTokenRequest refreshTokenRequest)
     {
-        RefreshToken resultRefreshToken = await refreshTokenBusinessRules.RefreshTokenShouldBeExists(await GetRefreshTokenByToken(refreshTokenRequest.RefreshToken));
+        RefreshToken resultRefreshToken = await refreshTokenBusinessRules.RefreshTokenShouldBeExists(await GetRefreshTokenByToken(refreshTokenRequest.Token));
         if (resultRefreshToken.RevokedDate != null)
             await RevokeDescendantRefreshTokens(
                 resultRefreshToken,
