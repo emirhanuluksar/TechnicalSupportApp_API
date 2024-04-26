@@ -36,8 +36,8 @@ public class AuthController(IAuthService authService, IRefreshTokenService refre
     [HttpGet("RefreshToken")]
     public async Task<IActionResult> RefreshToken()
     {
-
-        RefreshedTokensResponse refreshedTokensResponse = await refreshTokenService.RefreshToken(new RefreshTokenRequest(getRefreshTokenFromCookies(), getIpAddress()));
+        RefreshTokenRequest refreshTokenRequest = new() { Token = getRefreshTokenFromCookies(), IpAddress = getIpAddress() };
+        RefreshedTokensResponse refreshedTokensResponse = await refreshTokenService.RefreshToken(refreshTokenRequest);
         setRefreshTokenToCookie(refreshedTokensResponse.RefreshToken);
         return Created(uri: "", refreshedTokensResponse.AccessToken);
     }

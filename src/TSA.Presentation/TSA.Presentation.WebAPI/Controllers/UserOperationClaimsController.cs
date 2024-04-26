@@ -8,7 +8,7 @@ public class UserOperationClaimsController : ControllerBase
 {
 
     [HttpGet]
-    public async Task<IActionResult> GetUserOperationClaims()
+    public IActionResult GetUserOperationClaims()
     {
         return Ok();
     }
@@ -19,29 +19,21 @@ public class UserOperationClaimsController : ControllerBase
         return Ok(userOperationClaimId);
     }
 
-    [HttpPost("createUserOperationClaim")]
-    public IActionResult CreateUserOperationClaim([FromBody] CreateUserOperationClaimRequest request)
-    {
-        return Ok(request);
-    }
+    // [HttpPost("createUserOperationClaim")]
+    // public IActionResult CreateUserOperationClaim([FromBody] CreateUserOperationClaimRequest request)
+    // {
+    //     return Ok(request);
+    // }
 
-    [HttpPut("updateUserOperationClaim")]
-    public IActionResult UpdateUserOperationClaim([FromBody] UpdateUserOperationClaimRequest request)
-    {
-        return Ok(request);
-    }
+    // [HttpPut("updateUserOperationClaim")]
+    // public IActionResult UpdateUserOperationClaim([FromBody] UpdateUserOperationClaimRequest request)
+    // {
+    //     return Ok(request);
+    // }
 
     [HttpDelete("deleteUserOperationClaim/{userOperationClaimId}")]
     public IActionResult DeleteUserOperationClaim([FromRoute] Guid userOperationClaimId)
     {
         return Ok(userOperationClaimId);
     }
-}
-
-public class UpdateUserOperationClaimRequest
-{
-}
-
-public class CreateUserOperationClaimRequest
-{
 }

@@ -7,7 +7,7 @@ namespace TSA.Presentation.WebAPI.Controllers;
 public class OperationClaimsController : ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> GetOperationClaims()
+    public IActionResult GetOperationClaims()
     {
         return Ok();
     }
@@ -18,29 +18,21 @@ public class OperationClaimsController : ControllerBase
         return Ok(operationClaimId);
     }
 
-    [HttpPost("createOperationClaim")]
-    public IActionResult CreateOperationClaim([FromForm] CreateOperationClaimRequest request)
-    {
-        return Ok(request);
-    }
+    // [HttpPost("createOperationClaim")]
+    // public IActionResult CreateOperationClaim([FromForm] CreateOperationClaimRequest request)
+    // {
+    //     return Ok(request);
+    // }
 
-    [HttpPut("updateOperationClaim")]
-    public IActionResult UpdateOperationClaim([FromForm] UpdateOperationClaimRequest request)
-    {
-        return Ok(request);
-    }
+    // [HttpPut("updateOperationClaim")]
+    // public IActionResult UpdateOperationClaim([FromForm] UpdateOperationClaimRequest request)
+    // {
+    //     return Ok(request);
+    // }
 
     [HttpDelete("deleteOperationClaim/{operationClaimId}")]
     public IActionResult DeleteOperationClaim([FromRoute] Guid operationClaimId)
     {
         return Ok(operationClaimId);
     }
-}
-
-public class UpdateOperationClaimRequest
-{
-}
-
-public class CreateOperationClaimRequest
-{
 }
