@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TSA.Core.Application.Services.CompanyService;
 using TSA.Core.Application.Services.CompanyService.Models.RequestModels;
@@ -22,18 +23,21 @@ public class CompaniesController(ICompanyService companyService) : ControllerBas
     }
 
     [HttpPost("createCompany")]
+    [Authorize(Roles = "Admin")]
     public IActionResult CreateCompany([FromForm] CreateCompanyRequest request)
     {
         return Ok(request);
     }
 
     [HttpPut("updateCompany")]
+    [Authorize(Roles = "Admin")]
     public IActionResult UpdateCompany([FromForm] UpdateCompanyRequest request)
     {
         return Ok(request);
     }
 
     [HttpDelete("deleteCompany/{companyId}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult DeleteCompany([FromRoute] Guid companyId)
     {
         return Ok(companyId);

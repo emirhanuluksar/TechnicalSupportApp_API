@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TSA.Presentation.WebAPI.Controllers;
@@ -8,12 +9,14 @@ public class UserOperationClaimsController : ControllerBase
 {
 
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public IActionResult GetUserOperationClaims()
     {
         return Ok();
     }
 
     [HttpGet("getUserOperationClaimById/{userOperationClaimId}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult GetUserOperationClaimById([FromRoute] Guid userOperationClaimId)
     {
         return Ok(userOperationClaimId);
@@ -32,6 +35,7 @@ public class UserOperationClaimsController : ControllerBase
     // }
 
     [HttpDelete("deleteUserOperationClaim/{userOperationClaimId}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult DeleteUserOperationClaim([FromRoute] Guid userOperationClaimId)
     {
         return Ok(userOperationClaimId);

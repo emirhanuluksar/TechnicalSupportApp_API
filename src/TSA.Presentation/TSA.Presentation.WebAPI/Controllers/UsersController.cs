@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TSA.Presentation.WebAPI.Controllers;
@@ -7,12 +8,14 @@ namespace TSA.Presentation.WebAPI.Controllers;
 public class UsersController : ControllerBase
 {
     [HttpGet]
+    [Authorize(Roles = "Admin")]
     public IActionResult GetUsers()
     {
         return Ok();
     }
 
     [HttpGet("getUserById/{userId}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult GetUserById([FromRoute] Guid userId)
     {
         return Ok(userId);
@@ -31,6 +34,7 @@ public class UsersController : ControllerBase
     // }
 
     [HttpDelete("deleteUser/{userId}")]
+    [Authorize(Roles = "Admin")]
     public IActionResult DeleteUser([FromRoute] Guid userId)
     {
         return Ok(userId);
