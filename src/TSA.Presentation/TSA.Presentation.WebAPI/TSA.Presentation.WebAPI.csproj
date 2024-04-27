@@ -9,20 +9,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\TSA.Core\TSA.Core.Application\TSA.Core.Application.csproj" />
-    <ProjectReference
-      Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Infrastructure\TSA.Infrastructure.Infrastructure.csproj" />
-    <ProjectReference
-      Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Persistence\TSA.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Infrastructure\TSA.Infrastructure.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\TSA.Infrastructure\TSA.Infrastructure.Persistence\TSA.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
