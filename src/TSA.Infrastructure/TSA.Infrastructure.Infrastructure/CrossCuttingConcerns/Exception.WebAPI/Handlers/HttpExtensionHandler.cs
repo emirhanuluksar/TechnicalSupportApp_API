@@ -32,6 +32,13 @@ public class HttpExceptionHandler : ExceptionHandler
         return Response.WriteAsync(details);
     }
 
+    public override Task HandleException(AuthorizationException authorizationException)
+    {
+        Response.StatusCode = StatusCodes.Status401Unauthorized;
+        string details = new AuthorizationProblemDetails(authorizationException.Message).ToJson();
+        return Response.WriteAsync(details);
+    }
+
     public override Task HandleException(NotFoundException notFoundException)
     {
         Response.StatusCode = StatusCodes.Status404NotFound;
