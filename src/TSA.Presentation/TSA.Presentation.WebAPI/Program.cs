@@ -1,12 +1,12 @@
 using TSA.Core.Application;
 using TSA.Infrastructure.Persistence;
 using TSA.Infrastructure.Security;
-using TSA.Infrastructure.Security.Helpers.JWTHelpers;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using TSA.Infrastructure.Security.Helpers.EncryptionHelpers;
 using TSA.Infrastructure.Infrastructure.CrossCuttingConcerns.Exception.WebAPI.Extensions;
 using TSA.Infrastructure.Infrastructure;
+using TSA.Infrastructure.Security.Helpers.JWTHelpers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 var builder = WebApplication.CreateBuilder(args);
 
 
