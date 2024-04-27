@@ -12,7 +12,7 @@ using TSA.Infrastructure.Persistence.Contexts;
 namespace TSA.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(TSADbContext))]
-    [Migration("20240427202150_InitialCreate")]
+    [Migration("20240427204323_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -91,7 +91,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8755d3f4-3be3-46e3-be3b-9d003b3828b3"),
+                            Id = new Guid("70be6da6-21ad-4b0b-bb77-67321a56fd3f"),
                             Address = "Kavacık Mahallesi, Fatih Sultan Mehmet Cd. No:1, 34805 Beykoz/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company1.jpg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -104,7 +104,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ee04112d-9a12-4556-aa15-51a352d165b6"),
+                            Id = new Guid("c1028f88-5f7c-44f5-b7be-c1e05f495b9d"),
                             Address = "Kavacık Mahallesi, Fatih Sultan Mehmet Cd. No:1, 34805 Beykoz/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company2.jpeg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -117,7 +117,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c3126d9f-553a-49a3-b64d-1739584ca9cb"),
+                            Id = new Guid("cba6ae20-a533-4f4f-82aa-9e0397d29e13"),
                             Address = "SAMSUNG-Torium AVM Saadetdere Mh.E-5 Üzeri, Haramidere Cd., 34903 Avcılar/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company3.jpg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -130,7 +130,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("68ab9284-56fe-4800-9687-af4b90721bd1"),
+                            Id = new Guid("6ce8e3cf-32d7-4283-a5d8-0d8d84357df7"),
                             Address = "Meydan İstanbul AVM, Balkan Cd. No:62, 34770 Ümraniye/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company3.jpg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
