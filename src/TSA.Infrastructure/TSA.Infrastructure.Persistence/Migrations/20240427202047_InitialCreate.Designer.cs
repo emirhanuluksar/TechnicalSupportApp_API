@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TSA.Infrastructure.Persistence.Contexts;
 
@@ -11,9 +12,11 @@ using TSA.Infrastructure.Persistence.Contexts;
 namespace TSA.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(TSADbContext))]
-    partial class TSADbContextModelSnapshot : ModelSnapshot
+    [Migration("20240427202047_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

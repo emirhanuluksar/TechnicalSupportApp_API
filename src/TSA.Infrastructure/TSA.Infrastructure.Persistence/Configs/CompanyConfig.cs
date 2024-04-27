@@ -15,6 +15,7 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
         builder.Property(c => c.Email).HasColumnName("CompanyEmail").IsRequired();
         builder.Property(c => c.LogoUrl).HasColumnName("CompanyLogoUrl");
         builder.Property(c => c.CoverImageUrl).HasColumnName("CompanyCoverImageUrl");
+        builder.Property(c => c.Address).HasColumnName("CompanyAddress").IsRequired();
         builder.Property(c => c.Description).HasColumnName("CompanyDescription").IsRequired();
         builder.Property(c => c.PhoneNumber).HasColumnName("CompanyPhoneNumber").IsRequired();
         builder.Property(c => c.Website).HasColumnName("CompanyWebsite").IsRequired();
