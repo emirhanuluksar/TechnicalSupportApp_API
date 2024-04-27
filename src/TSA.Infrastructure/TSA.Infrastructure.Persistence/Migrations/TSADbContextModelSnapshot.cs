@@ -88,7 +88,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("5cdf632f-f1d7-4b27-8ddb-406faf079c93"),
+                            Id = new Guid("8755d3f4-3be3-46e3-be3b-9d003b3828b3"),
                             Address = "Kavacık Mahallesi, Fatih Sultan Mehmet Cd. No:1, 34805 Beykoz/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company1.jpg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -101,7 +101,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("315c5344-8442-41d7-a93a-e4c86673de76"),
+                            Id = new Guid("ee04112d-9a12-4556-aa15-51a352d165b6"),
                             Address = "Kavacık Mahallesi, Fatih Sultan Mehmet Cd. No:1, 34805 Beykoz/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company2.jpeg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -114,7 +114,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e4edb892-909d-4b85-be01-9f2023d3fb83"),
+                            Id = new Guid("c3126d9f-553a-49a3-b64d-1739584ca9cb"),
                             Address = "SAMSUNG-Torium AVM Saadetdere Mh.E-5 Üzeri, Haramidere Cd., 34903 Avcılar/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company3.jpg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -127,7 +127,7 @@ namespace TSA.Infrastructure.Persistence.Migrations
                         },
                         new
                         {
-                            Id = new Guid("a9a4469b-90a2-4e38-8855-4954a623be4e"),
+                            Id = new Guid("68ab9284-56fe-4800-9687-af4b90721bd1"),
                             Address = "Meydan İstanbul AVM, Balkan Cd. No:62, 34770 Ümraniye/İstanbul",
                             CoverImageUrl = "/images/companyCoverImages/company3.jpg",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
