@@ -2,13 +2,8 @@ namespace TSA.Core.Application.Services.CompanyService.Constants;
 
 public static class PathConstants
 {
-    public const string BasePathForAssetsFromUbuntu = "/var/www/dhtechnic-assets";
-    public const string BasePathForImagesFromUbuntu = "/var/www/dhtechnic-assets/images";
-    public const string SubPathForCoverImagesFromUbuntu = "companyCoverImages";
-    public const string SubPathForLogosFromUbuntu = "companyLogos";
-
-    public const string BasePathForAssetsFromLocal = "wwwroot/assets";
-    public const string BasePathForImagesFromLocal = "wwwroot/assets/images";
-    public const string SubPathForCoverImagesFromLocal = "companyCoverImages";
-    public const string SubPathForLogosFromLocal = "companyLogos";
+    public const string ServerCompanyCoverImagesPath = "/var/www/dhtechnic-assets/images/companyCoverImages";
+    public const string ServerCompanyLogosPath = "/var/www/dhtechnic-assets/images/companyLogos";
+    public const string LocalCompanyCoverImages = "../../../wwwroot/assets/images/companyCoverImages";
+    public const string LocalCompanyLogosPath = "../../../wwwroot/assets/images/companyLogos";
 }

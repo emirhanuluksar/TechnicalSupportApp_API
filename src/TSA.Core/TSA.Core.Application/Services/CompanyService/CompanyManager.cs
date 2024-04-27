@@ -1,24 +1,37 @@
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using TSA.Core.Application.Repositories.Common;
-using TSA.Core.Application.Services.CompanyService.Constants;
+using TSA.Core.Application.Services.CompanyService.Models.QueryModels;
 using TSA.Core.Application.Services.CompanyService.Models.RequestModels;
 using TSA.Core.Application.Services.CompanyService.Models.ResponseModels;
+using TSA.Core.Application.Services.CompanyService.Rules;
 using TSA.Core.Domain.Entities;
-using TSA.Infrastructure.Infrastructure.FileHelper;
 
 namespace TSA.Core.Application.Services.CompanyService;
 
-public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper) : ICompanyService
+public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper, CompanyBusinessRules companyBusinessRules) : ICompanyService
 {
     public async Task<CreatedCompanyResponse> CreateCompany(CreateCompanyRequest request)
     {
-        var (logoUrl, coverImageUrl) = await PrepareCompanyImagesAsync(request.Logo, request.CoverImage);
+        await companyBusinessRules.CompanyNameShouldNotBeExists(request.Name);
         var company = mapper.Map<Company>(request);
-        company.CoverImageUrl = coverImageUrl;
-        company.LogoUrl = logoUrl;
         var createdCompany = await unitOfWork.CompanyRepository.AddAsync(company);
-        var mappedResponse = mapper.Map<CreatedCompanyResponse>(createdCompany);
+        var imageUrls = await companyBusinessRules.AddPictureIfAny(createdCompany.Id, request.CoverImage, request.Logo);
+        company.CoverImageUrl = imageUrls.coverImageUrl;
+        company.LogoUrl = imageUrls.logoUrl;
+        var updatedCompany = await unitOfWork.CompanyRepository.UpdateAsync(company);
+        var mappedResponse = mapper.Map<CreatedCompanyResponse>(updatedCompany);
+        return mappedResponse;
+    }
+
+    public async Task<UpdatedCompanyResponse> UpdateCompany(UpdateCompanyRequest request)
+    {
+        var company = await companyBusinessRules.GetCompanyById(request.Id);
+        var mappedCompany = mapper.Map(request, company);
+        var imageUrls = await companyBusinessRules.AddPictureIfAny(mappedCompany.Id, request.CoverImage, request.Logo);
+        mappedCompany.CoverImageUrl = imageUrls.coverImageUrl;
+        mappedCompany.LogoUrl = imageUrls.logoUrl;
+        var updatedCompany = await unitOfWork.CompanyRepository.UpdateAsync(mappedCompany);
+        var mappedResponse = mapper.Map<UpdatedCompanyResponse>(updatedCompany);
         return mappedResponse;
     }
 
@@ -29,45 +42,18 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper) : ICompanySe
         return mappedCompanies;
     }
 
-    private async Task<(string logoUrl, string coverImageUrl)> PrepareCompanyImagesAsync(IFormFile? logo, IFormFile? coverImage)
+    public async Task<DeletedCompanyResponse> DeleteCompany(DeleteCompanyRequest request)
     {
-        string logoUrl = string.Empty;
-        string coverImageUrl = string.Empty;
-
-        if (logo != null)
-        {
-            logoUrl = await CreateCompanyLogo(logo);
-        }
-
-        if (coverImage != null)
-        {
-            coverImageUrl = await CreateCompanyCoverImage(coverImage);
-        }
-
-        return (logoUrl, coverImageUrl);
+        var company = await companyBusinessRules.GetCompanyById(request.Id);
+        await unitOfWork.CompanyRepository.DeleteAsync(company);
+        DeletedCompanyResponse deletedCompanyResponse = new() { Id = request.Id };
+        return deletedCompanyResponse;
     }
 
-    private async Task<string> CreateCompanyLogo(IFormFile logo)
+    public async Task<GetCompanyByIdResponseModel> GetCompanyById(Guid companyId)
     {
-        string basePath = PathConstants.BasePathForImagesFromUbuntu;
-        string subPath = PathConstants.SubPathForLogosFromUbuntu;
-
-        var fileHelper = new FileHelper(basePath, subPath);
-
-        return await fileHelper.SaveFileAsync(logo);
+        var company = await companyBusinessRules.GetCompanyById(companyId);
+        var mappedCompany = mapper.Map<GetCompanyByIdResponseModel>(company);
+        return mappedCompany;
     }
-
-
-    private async Task<string> CreateCompanyCoverImage(IFormFile coverImage)
-    {
-        string basePath = PathConstants.BasePathForImagesFromUbuntu;
-        string subPath = PathConstants.SubPathForCoverImagesFromUbuntu;
-
-
-        var fileHelper = new FileHelper(basePath, subPath);
-
-        return await fileHelper.SaveFileAsync(coverImage);
-    }
-
-
 }

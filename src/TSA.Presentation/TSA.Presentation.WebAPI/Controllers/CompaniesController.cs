@@ -17,30 +17,33 @@ public class CompaniesController(ICompanyService companyService) : ControllerBas
     }
 
     [HttpGet("getCompanyById/{companyId}")]
-    public IActionResult GetCompanyById([FromRoute] Guid companyId)
+    public async Task<IActionResult> GetCompanyById([FromRoute] Guid companyId)
     {
-        return Ok(companyId);
+        var response = await companyService.GetCompanyById(companyId);
+        return Ok(response);
     }
 
     [HttpPost("createCompany")]
-    [Authorize(Roles = "Admin")]
-    public IActionResult CreateCompany([FromForm] CreateCompanyRequest request)
+    public async Task<IActionResult> CreateCompany([FromForm] CreateCompanyRequest request)
     {
-        return Ok(request);
+        var response = await companyService.CreateCompany(request);
+        return Created(uri: "", response);
     }
 
-    [HttpPut("updateCompany")]
-    [Authorize(Roles = "Admin")]
-    public IActionResult UpdateCompany([FromForm] UpdateCompanyRequest request)
+    [HttpPatch("updateCompany")]
+    public async Task<IActionResult> UpdateCompany([FromForm] UpdateCompanyRequest request)
     {
-        return Ok(request);
+        var response = await companyService.UpdateCompany(request);
+        return Ok(response);
     }
 
     [HttpDelete("deleteCompany/{companyId}")]
-    [Authorize(Roles = "Admin")]
-    public IActionResult DeleteCompany([FromRoute] Guid companyId)
+    public async Task<IActionResult> DeleteCompany([FromRoute] Guid companyId)
     {
-        return Ok(companyId);
+        DeleteCompanyRequest request = new() { Id = companyId };
+        var response = await companyService.DeleteCompany(request);
+        return Ok(response);
     }
+
 
 }

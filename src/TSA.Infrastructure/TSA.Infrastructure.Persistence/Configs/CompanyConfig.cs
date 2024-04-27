@@ -34,6 +34,7 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
                 Email = "test@test.com",
                 LogoUrl = "/images/companyLogos/Dgtl.png",
                 CoverImageUrl = "/images/companyCoverImages/company1.jpg",
+                Address = "Kavacık Mahallesi, Fatih Sultan Mehmet Cd. No:1, 34805 Beykoz/İstanbul",
                 Description = "Uluksar is a company that provides software solutions.",
                 PhoneNumber = "+1234567890",
                 Website = "www.uluksar.com",
@@ -45,6 +46,7 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
                 Email = "dgtalhat@dgtalhat.com",
                 LogoUrl = "/images/companyLogos/Dgtl.png",
                 CoverImageUrl = "/images/companyCoverImages/company2.jpeg",
+                Address = "Kavacık Mahallesi, Fatih Sultan Mehmet Cd. No:1, 34805 Beykoz/İstanbul",
                 Description = "Digitalhat is a company that provides software solutions.",
                 PhoneNumber = "+1234567890",
                 Website = "www.digitalhat.com",
@@ -56,9 +58,22 @@ public class CompanyConfig : IEntityTypeConfiguration<Company>
                 Email = "uluars@uluars.com",
                 LogoUrl = "/images/companyLogos/Dgtl.png",
                 CoverImageUrl = "/images/companyCoverImages/company3.jpg",
+                Address = "SAMSUNG-Torium AVM Saadetdere Mh.E-5 Üzeri, Haramidere Cd., 34903 Avcılar/İstanbul",
                 Description = "ULUARS HOLDING is a company that provides software solutions.",
                 PhoneNumber = "+1234567890",
                 Website = "www.uluars.com",
+            },
+            new Company
+            {
+                Id = Guid.NewGuid(),
+                Name = "Justwork",
+                Email = "justwork@justwork.com",
+                LogoUrl = "/images/companyLogos/Dgtl.png",
+                CoverImageUrl = "/images/companyCoverImages/company3.jpg",
+                Address = "Meydan İstanbul AVM, Balkan Cd. No:62, 34770 Ümraniye/İstanbul",
+                Description = "Justwork is a company that provides software solutions.",
+                PhoneNumber = "+1234567890",
+                Website = "www.justwork.com",
             }
         );
 
