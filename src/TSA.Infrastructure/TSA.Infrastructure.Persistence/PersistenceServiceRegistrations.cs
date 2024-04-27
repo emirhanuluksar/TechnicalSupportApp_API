@@ -13,7 +13,7 @@ public static class PersistenceServiceRegistrations
     {
         services.AddDbContext<TSADbContext>(options =>
         {
-            var connectionString = Environment.GetEnvironmentVariable("ServerConnectionString");
+            var connectionString = Environment.GetEnvironmentVariable("ConnectionString");
 
             options.UseSqlServer(connectionString);
         });
