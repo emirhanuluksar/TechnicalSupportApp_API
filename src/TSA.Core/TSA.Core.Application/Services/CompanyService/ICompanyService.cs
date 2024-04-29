@@ -11,4 +11,5 @@ public interface ICompanyService
     Task<DeletedCompanyResponse> DeleteCompany(DeleteCompanyRequest request);
     Task<IEnumerable<GetCompaniesResponseModel>> GetCompanies();
     Task<GetCompanyByIdResponseModel> GetCompanyById(Guid companyId);
+    Task<ICollection<GetCompaniesResponseModel>> SearchCompaniesAsync(string search, CancellationToken cancellationToken = default);
 }

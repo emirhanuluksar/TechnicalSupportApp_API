@@ -23,6 +23,13 @@ public class CompaniesController(ICompanyService companyService) : ControllerBas
         return Ok(response);
     }
 
+    [HttpGet("searchCompany/{searchCompany}")]
+    public async Task<IActionResult> GetCompanyById([FromRoute] string searchCompany)
+    {
+        var response = await companyService.SearchCompaniesAsync(searchCompany);
+        return Ok(response);
+    }
+
     [HttpPost("createCompany")]
     public async Task<IActionResult> CreateCompany([FromForm] CreateCompanyRequest request)
     {

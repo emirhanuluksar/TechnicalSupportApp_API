@@ -56,4 +56,11 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper, CompanyBusin
         var mappedCompany = mapper.Map<GetCompanyByIdResponseModel>(company);
         return mappedCompany;
     }
+
+    public async Task<ICollection<GetCompaniesResponseModel>> SearchCompaniesAsync(string search, CancellationToken cancellationToken = default)
+    {
+        var companies = await companyBusinessRules.SearchCompaniesAsync(search, cancellationToken);
+        var mappedCompanies = mapper.Map<ICollection<GetCompaniesResponseModel>>(companies);
+        return mappedCompanies;
+    }
 }

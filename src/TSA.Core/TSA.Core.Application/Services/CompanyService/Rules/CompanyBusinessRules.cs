@@ -41,6 +41,11 @@ public class CompanyBusinessRules(IUnitOfWork unitOfWork, IFileService fileServi
         return company;
     }
 
+    public async Task<ICollection<Company>> SearchCompaniesAsync(string search, CancellationToken cancellationToken = default)
+    {
+        return await unitOfWork.CompanyRepository.SearchCompaniesAsync(search, cancellationToken);
+    }
+
     public async Task CompanyNameShouldNotBeExists(string name)
     {
         var companies = await unitOfWork.CompanyRepository.GetListAsync();
