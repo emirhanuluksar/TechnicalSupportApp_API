@@ -24,14 +24,14 @@ public class AuthController(IAuthService authService, IRefreshTokenService refre
         return Ok(result.ToHttpResponse());
     }
 
-    [HttpPost("Register")]
-    public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
-    {
-        registerRequest.IpAddress = getIpAddress();
-        var result = await authService.Register(registerRequest);
-        setRefreshTokenToCookie(result.RefreshToken);
-        return Created(uri: "", result.AccessToken);
-    }
+    // [HttpPost("Register")]
+    // public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
+    // {
+    //     registerRequest.IpAddress = getIpAddress();
+    //     var result = await authService.Register(registerRequest);
+    //     setRefreshTokenToCookie(result.RefreshToken);
+    //     return Created(uri: "", result.AccessToken);
+    // }
 
     [HttpGet("RefreshToken")]
     public async Task<IActionResult> RefreshToken()
