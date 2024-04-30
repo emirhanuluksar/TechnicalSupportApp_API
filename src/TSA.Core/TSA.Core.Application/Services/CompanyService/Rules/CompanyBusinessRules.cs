@@ -15,7 +15,7 @@ public class CompanyBusinessRules(IUnitOfWork unitOfWork, IFileService fileServi
     {
         if (coverImage is null && logo is null)
         {
-            throw new BusinessException("At least one picture must be uploaded.");
+            return (string.Empty, string.Empty);
         }
         var coverImageUrl = await fileService.SaveFileAsync(companyId, coverImage!, PathConstants.ServerCompanyCoverImagesPath);
         var logoUrl = await fileService.SaveFileAsync(companyId, logo!, PathConstants.ServerCompanyLogosPath);
