@@ -28,11 +28,10 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper, CompanyBusin
         var company = await companyBusinessRules.GetCompanyById(request.Id);
         var mappedCompany = mapper.Map(request, company);
         var imageUrls = await companyBusinessRules.AddPictureIfAny(mappedCompany.Id, request.CoverImage, request.Logo);
-        if (!string.IsNullOrEmpty(imageUrls.coverImageUrl) && !string.IsNullOrEmpty(imageUrls.logoUrl))
-        {
-            mappedCompany.CoverImageUrl = imageUrls.coverImageUrl;
-            mappedCompany.LogoUrl = imageUrls.logoUrl;
-        }
+
+        mappedCompany.CoverImageUrl = imageUrls.coverImageUrl;
+        mappedCompany.LogoUrl = imageUrls.logoUrl;
+
         var updatedCompany = await unitOfWork.CompanyRepository.UpdateAsync(mappedCompany);
         var mappedResponse = mapper.Map<UpdatedCompanyResponse>(updatedCompany);
         return mappedResponse;

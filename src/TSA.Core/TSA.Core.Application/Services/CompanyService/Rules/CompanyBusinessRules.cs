@@ -13,10 +13,6 @@ public class CompanyBusinessRules(IUnitOfWork unitOfWork, IFileService fileServi
 {
     public async Task<(string coverImageUrl, string logoUrl)> AddPictureIfAny(Guid companyId, IFormFile? coverImage, IFormFile? logo)
     {
-        if (coverImage is null && logo is null)
-        {
-            return (string.Empty, string.Empty);
-        }
         var coverImageUrl = await fileService.SaveFileAsync(companyId, coverImage!, PathConstants.ServerCompanyCoverImagesPath);
         var logoUrl = await fileService.SaveFileAsync(companyId, logo!, PathConstants.ServerCompanyLogosPath);
         return (coverImageUrl, logoUrl);
