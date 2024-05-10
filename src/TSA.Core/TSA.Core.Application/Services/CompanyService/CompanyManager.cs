@@ -15,10 +15,8 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper, CompanyBusin
         await companyBusinessRules.CompanyNameShouldNotBeExists(request.Name);
         var company = mapper.Map<Company>(request);
         var createdCompany = await unitOfWork.CompanyRepository.AddAsync(company);
-        var imageUrls = await companyBusinessRules.AddPictureIfAny(createdCompany.Id, request.CoverImage, request.Logo);
-        company.CoverImageUrl = imageUrls.coverImageUrl;
-        company.LogoUrl = imageUrls.logoUrl;
-        var updatedCompany = await unitOfWork.CompanyRepository.UpdateAsync(company);
+        createdCompany = await companyBusinessRules.AddPictureIfAny(createdCompany, request.CoverImage, request.Logo);
+        var updatedCompany = await unitOfWork.CompanyRepository.UpdateAsync(createdCompany);
         var mappedResponse = mapper.Map<CreatedCompanyResponse>(updatedCompany);
         return mappedResponse;
     }
@@ -27,11 +25,7 @@ public class CompanyManager(IUnitOfWork unitOfWork, IMapper mapper, CompanyBusin
     {
         var company = await companyBusinessRules.GetCompanyById(request.Id);
         var mappedCompany = mapper.Map(request, company);
-        var imageUrls = await companyBusinessRules.AddPictureIfAny(mappedCompany.Id, request.CoverImage, request.Logo);
-
-        mappedCompany.CoverImageUrl = imageUrls.coverImageUrl;
-        mappedCompany.LogoUrl = imageUrls.logoUrl;
-
+        mappedCompany = await companyBusinessRules.AddPictureIfAny(mappedCompany, request.CoverImage, request.Logo);
         var updatedCompany = await unitOfWork.CompanyRepository.UpdateAsync(mappedCompany);
         var mappedResponse = mapper.Map<UpdatedCompanyResponse>(updatedCompany);
         return mappedResponse;

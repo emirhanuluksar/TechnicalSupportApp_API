@@ -11,11 +11,20 @@ namespace TSA.Core.Application.Services.CompanyService.Rules;
 
 public class CompanyBusinessRules(IUnitOfWork unitOfWork, IFileService fileService) : BaseBusinessRules
 {
-    public async Task<(string coverImageUrl, string logoUrl)> AddPictureIfAny(Guid companyId, IFormFile? coverImage, IFormFile? logo)
+    public async Task<Company> AddPictureIfAny(Company company, IFormFile? coverImage, IFormFile? logo)
     {
-        var coverImageUrl = await fileService.SaveFileAsync(companyId, coverImage!, PathConstants.ServerCompanyCoverImagesPath);
-        var logoUrl = await fileService.SaveFileAsync(companyId, logo!, PathConstants.ServerCompanyLogosPath);
-        return (coverImageUrl, logoUrl);
+        string coverImageUrl, logoUrl;
+        if (coverImage is not null)
+        {
+            coverImageUrl = await fileService.SaveFileAsync(company.Id, coverImage, PathConstants.ServerCompanyCoverImagesPath);
+            company.CoverImageUrl = coverImageUrl;
+        }
+        if (logo is not null)
+        {
+            logoUrl = await fileService.SaveFileAsync(company.Id, logo, PathConstants.ServerCompanyLogosPath);
+            company.LogoUrl = logoUrl;
+        }
+        return company;
     }
 
     public async Task CompanyShouldBeExists(Guid id)
